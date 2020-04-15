@@ -9,9 +9,7 @@ public class Calculations {
         System.out.print("Enter x = ");
         double x = scan.nextDouble();
         System.out.println("Your (x) is " + x);
-        if (x > 1.002 && x < 606.945) {
-            throw new java.lang.Error("Variable out of boundary limits!");
-        }
+        checkLimits(x);
         System.out.print("x^4*1.752+x^3*2.031-x^2*3.874+x*1.858 = ");
         System.out.println(BigDecimal.valueOf(firstFunc(x))
                 .setScale(3, RoundingMode.HALF_UP));
@@ -24,6 +22,12 @@ public class Calculations {
         System.out.print("x*4.15 = ");
         System.out.println(BigDecimal.valueOf(fourthFunc(x))
                 .setScale(3, RoundingMode.HALF_UP));
+    }
+
+    static void checkLimits(double x) {
+        if (x > 1.002 && x < 606.945) {
+            throw new java.lang.Error("Variable out of boundary limits!");
+        }
     }
 
     static double firstFunc(double x) {
